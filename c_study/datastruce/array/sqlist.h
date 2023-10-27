@@ -6,7 +6,7 @@ typedef int datatype;
 typedef struct node_st
 {
     datatype data[DATASIZE];
-    int last;
+    int size;
 } sqlist;
 
 sqlist* sqlist_create();
