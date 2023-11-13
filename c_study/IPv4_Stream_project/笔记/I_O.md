@@ -19,7 +19,9 @@
 fgetc();
 fputc();
 fgets();
+- fgets(char *, SIZE, FILE_Stream), 正常结束情况：1. 读到了 size - 1 个字符，2. 读到了 '\n';
 fputs();
+- fputs(const char *, FILE *stream),
 fread();
 fwrite();
 
