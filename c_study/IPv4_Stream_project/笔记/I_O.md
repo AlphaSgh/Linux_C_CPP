@@ -16,20 +16,30 @@
 - path:文件路径，mode：打开权限 r, r+, w, w+, a, a+,
 - fclose();
 
-fgetc();
-fputc();
-fgets();
-- fgets(char *, SIZE, FILE_Stream), 正常结束情况：1. 读到了 size - 1 个字符，2. 读到了 '\n';
-fputs();
+- fgetc();
+- fputc();
+- fgets();
+- fgets(char \*, SIZE, FILE_Stream), 正常结束情况：1. 读到了 size - 1 个字符，2. 读到了 '\n';
+- fputs();
 - fputs(const char *, FILE *stream),
-fread();
-fwrite();
 
-printf();
-scanf();
+- fread();
+- fread(buf, size, nmemb, fp); 从 fp 读取 nmemb 个大小为 size 的对象到 buf 中，返回值为成功读取的对象个数，如果读取的字节数小于 size 则无法进行读取
+- fwrite();
 
-fseek();
-ftell();
-fewind();
+- printf(const char \*format, ...);
+- fprintf(FILE *stream, const char *format, ...);
+- sprintf(char *str, const char *format, ...);
+- snprintf(char *str, size_t size, const char *format, ...);放入 n 个字节，防止缓冲器溢出
+- atoi(const char \*strnum); 讲一个字符串转换为数字
+- scanf(const char \*format, ...);
+- fscanf(FILE \*stream, const char \*format, ...);
+- sscanf(const char *str, const char *format, ...)
 
-fflush();
+文件位指针，文件的读写发生在当前位置。
+
+- fseek(\*stream, offset, whence); 可以实现空洞文件
+- ftell(\*stream); 返回文件指针所在位置
+- rewind(); == (void) fseek(stream, 0L, SEEK_SET)
+
+- fflush();
