@@ -25,7 +25,7 @@ int openat(int dirfd, const char *pathname, int flags, mode_t mode);
 ```c
 #include <unistd.h>
 // 从 fd 中读取 size 大小的内容写到 buf 中
-ssize_t read(int fd, void \*buf, size_t count);
+ssize_t read(int fd, void *buf, size_t count);
 // 从 buf 中度size大小内容写入到fd中
 ssize_t write(int fd, const void *buf, size_t count);
 ```
@@ -72,13 +72,18 @@ int fileno(FILE *stream);
 // 将文件描述符fd转化为FILE Stream流
 FILE *fdopen(int fd, const char *mode);
 ```
-
+```c
+int truncate(const char *path, off_t length);
+int ftruncate(int fd, off_t length);
+// 对已打开的文件或未打开的文件进行截断
+```
 ## 文件共享
-
-## 原子操作
-
+- 多线程共享
+- 多进程共享
+## 原子操作：不可分割的操作
+- 原则操作的作用：解决冲突和竞争
 ## 程序中的重定向：dup，dup2
-
+dup:复制一个文件描述符放在当前最小可使用的位置上
 ## 同步：sync(); fsync(); fdatasync(); fctl(); ioctl();
 
 ## 虚目录：/dev/fd
