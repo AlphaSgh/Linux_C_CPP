@@ -41,5 +41,10 @@
 - fseek(\*stream, offset, whence); 可以实现空洞文件
 - ftell(\*stream); 返回文件指针所在位置
 - rewind(); == (void) fseek(stream, 0L, SEEK_SET)
+- fseeko();
+- ftello();
 
-- fflush();
+- fflush(); 刷新缓冲器
+
+- getline(char \**lineptr, size_t *n, FILE *stream); 从 stream 中获取一整行的内容放入 *lineptr。
+- 临时文件：1.如何不冲突，2.及时销毁，3.常用函数：创建临时名字 char *tmpnam(char *s); 创建临时文件 FILE \*tmpfile(void);
