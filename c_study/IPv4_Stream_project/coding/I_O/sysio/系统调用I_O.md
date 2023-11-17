@@ -12,6 +12,7 @@
 ## 文件 IO 操作：open，close，read，write，lseek
 
 ```c
+// 文件的状态选项和创建选项
 int open(const char *pathname, int flags);
 int open(const char *pathname, int flags, mode_t mode);
 // 参数flag：读写权限是必需的，后面的是可加的，
@@ -85,5 +86,10 @@ int ftruncate(int fd, off_t length);
 ## 程序中的重定向：dup，dup2
 dup:复制一个文件描述符放在当前最小可使用的位置上
 ## 同步：sync(); fsync(); fdatasync(); fctl(); ioctl();
+- sync(); 同步内核中cache和buffer中的内容刷新到磁盘上
+- fsync(); 向文件中输入数据 fdatasync(); 向文件中刷入数据，不包括亚数据(修改时间。。。)
+- fctl(); 文件描述符相关的魔术几乎都来源于该函数
+- ioctl(); 设备相关的内容几乎都来源于该函数
 
 ## 虚目录：/dev/fd
+- 显示当前进程的文件描述符信息
