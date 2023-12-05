@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 #define LEFT 30000000
 #define RIGHT 30000200
@@ -32,10 +33,14 @@ int main()
             {
                 printf("%d is a primer\n", i);
             }
-            // sleep(1000);
             exit(0);
         }
     }
-    // sleep(1000);
+    int state;
+    for (int i = LEFT; i <= RIGHT; i++)
+    {
+        wait(&state);
+    }
+
     exit(0);
 }
